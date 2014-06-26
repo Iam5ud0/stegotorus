@@ -45,6 +45,7 @@ libstegotorus_a_SOURCES = \
 	src/compression.cc \
 	src/connections.cc \
 	src/crypt.cc \
+	src/modus_operandi.cc \
 	src/mkem.cc \
 	src/network.cc \
 	src/protocol.cc \
