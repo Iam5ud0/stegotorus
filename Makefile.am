@@ -53,6 +53,7 @@ libstegotorus_a_SOURCES = \
 	src/socks.cc \
 	src/steg.cc \
 	src/util.cc \
+	src/strncasestr.cc \
 	src/util-net.cc \
 	src/evbuf_util.cc \
 	src/curl_util.cc \
@@ -93,6 +94,7 @@ bin_PROGRAMS += pgen_pcap
 
 pgen_pcap_SOURCES = \
 	src/pgen_pcap.cc \
+	src/strncasestr.cc \
 	src/compression.cc \
 	src/util.cc
 
