@@ -18,6 +18,7 @@
 #include <tr1/unordered_map>
 #include <sstream>
 #include <string>
+#include <stdint.h>
 
 #include <tr1/unordered_set>
 #include <vector>
@@ -216,6 +217,8 @@ struct chop_config_t : config_t
   double noise2signal; //to protect against statistical analysis
 
   CONFIG_DECLARE_METHODS(chop);
+
+  DISALLOW_COPY_AND_ASSIGN(chop_config_t);
 };
 
 // Configuration methods
@@ -254,6 +257,16 @@ chop_config_t::~chop_config_t()
       delete i->second;
 
   delete transparent_proxy;
+}
+
+bool
+chop_config_t::is_good(modus_operandi_t &mo)
+{
+  /* could be improved; but this is a good first sanity check */
+  return mo.protocol() == "chop"     &&
+    !mo.mode().empty()               &&
+    !mo.up_address().empty()         &&
+    mo.down_addresses().size() > 0;
 }
 
 bool
