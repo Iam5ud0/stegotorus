@@ -564,7 +564,8 @@ int  JSSteg::encode(uint8_t* data, size_t data_len, uint8_t* cover_payload, size
     }
     
     //free(outbuf2);
-    outbuf=outbuf2;
+    *outbuf=*outbuf2;
+    free(outbuf2);
     
     //free(outbuf);
 
